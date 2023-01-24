@@ -1,6 +1,6 @@
 class ProductManager{
     constructor(){
-        this.patch= "./datata.json"
+        this.patch= "./products.json"
         this.productos= []
     }
   
