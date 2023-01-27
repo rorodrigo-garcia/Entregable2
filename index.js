@@ -1,3 +1,6 @@
+import  express  from "express";
+import  fs from "fs"
+
 class ProductManager{
     constructor(){
         this.patch= "./products.json"
@@ -6,18 +9,19 @@ class ProductManager{
   
 }
 
-const fs = require("fs");
+// const fs = require("fs");
 const manejoArchivo= async () =>{
-    const products= {
+    const products=  {
       id:1,
       title: "Tomate",
       description:"Fruta de buen comer",
       price:15,
       thumbail:"",
       code:"",
-      stock:7
-    }
-    const products2 ={
+      stock:7,
+      
+    } 
+    const products2 =  {
         id:2,
         title:"Cebolla",
         description:"Verdura de buen comer",
@@ -26,7 +30,7 @@ const manejoArchivo= async () =>{
         code:"",
         stock:7,
         
-    }
+    }  
 
     
     
@@ -36,13 +40,13 @@ const manejoArchivo= async () =>{
     console.log(segundoProducto)
     
     try{
-        await  fs.promises.writeFile("./products.json" , `${productos}` , "utf-8")
+        await  fs.promises.writeFile("./products.json" , ` [${productos} ,` , "utf-8")
         console.log("termine de escribir")
     } catch(err){
         console.log(err)
     }
     try {
-          await  fs.promises.appendFile("./products.json" , `${segundoProducto}`, "utf-8")
+          await  fs.promises.appendFile("./products.json" , `${segundoProducto} ]`, "utf-8")
     } catch (error) {
         console.log(error)
     }
@@ -59,5 +63,9 @@ const manejoArchivo= async () =>{
 }
 
     manejoArchivo()
+
+ 
+
+
 
   
